@@ -92,12 +92,12 @@ public class MutatedCell : CellType
 
     public override void GetNextState(Cell cell)
     {
-        int mutatedNeighbours = 0;
+        List<Cell> mutantNeighbours = new List<Cell>();
         foreach(Cell neighbour in cell._neighbouringCells)
         {
             if(neighbour._currentCellType == CellGrid._mutatedCellType)
             {
-                mutatedNeighbours += 1;
+                mutantNeighbours.Add(neighbour);
             }
         }
     }
