@@ -7,7 +7,7 @@ public class CellGrid : MonoBehaviour
 
     // grid geometry
     private Cell[,] _grid;
-    [SerializeField] private int _gridSize;
+    [SerializeField] public int _gridSize;
     [SerializeField] private float _padding;
 
     // misc data

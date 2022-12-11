@@ -1,0 +1,5 @@
+need to redo the way mutated cells mutate - rather than going throughall mutated cells go through all non-mutants and determine how many mutants are around
+That way one cell isnt treated twice 
+But how to trat directionality?
+
+Update the random grid generation such that one can bias it towards one or the other species (alive/dead) so that we dont begin with a screen halffilled with alive cells
