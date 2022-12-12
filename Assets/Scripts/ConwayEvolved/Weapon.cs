@@ -5,27 +5,37 @@ using UnityEngine;
 public class Weapon
 {
     private Bullet _bulletPrefab;
-    private float _bulletSpeed;
     private Cannon _cannon;
 
-    public Weapon(Cannon cannon)
+    protected float _bulletSpeed;
+    public float reloadSpeed;
+
+    public bool isLoaded = true;
+
+    public Weapon(Cannon cannon, Bullet bullet)
     {
         _cannon = cannon;
+        _bulletPrefab = bullet;
     }
 
     public virtual void Shoot(Vector3 direction)
     {
-        Bullet bullet = Object.Instantiate(_bulletPrefab, _cannon.transform.position, Quaternion.identity, _cannon.transform);
-        bullet.InitializeBullet(_bulletSpeed, direction);
+        if(isLoaded)
+        {
+            Bullet bullet = Object.Instantiate(_bulletPrefab, _cannon.transform.position, Quaternion.identity, _cannon.transform);
+            bullet.InitializeBullet(_bulletSpeed, direction);
+            isLoaded = false;
+            _cannon.Reload();
+        }
     }
+
 }
 
 public class BasicGun : Weapon
 {
-
-      public BasicGun(Cannon cannon) : base(cannon)
-      {
-
-      }
-
+    public BasicGun(Cannon cannon, Bullet bullet) : base(cannon, bullet)
+    {
+        _bulletSpeed = 5.0f;
+        reloadSpeed = 1.0f;
+    }
 }

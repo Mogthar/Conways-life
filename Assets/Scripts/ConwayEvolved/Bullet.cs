@@ -24,7 +24,7 @@ public class Bullet : MonoBehaviour
     private void CheckImpact()
     {
         Vector3 rayOrigin = new Vector3(transform.position.x, transform.position.y, -1.0f);
-        Ray ray = new Ray(rayOrigin, Vector3.forward);
+        Ray ray = new Ray(rayOrigin, Vector3.forward); //cast upwards
         RaycastHit2D[] hits = Physics2D.GetRayIntersectionAll(ray, Mathf.Infinity);
         foreach(var hit in hits)
         {

@@ -41,3 +41,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Cells
+    uniqueID: 57296463
+    locked: 0
+  - name: Projectiles
+    uniqueID: 1212155125
+    locked: 0
